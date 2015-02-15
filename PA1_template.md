@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -35,7 +40,7 @@ To have an overview of the distribution of the number of steps, a histogram is m
 hist(table$steps,ylab="Frequency",xlab="Steps",main="Histogram of total steps each day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 Then we calculate the mean and median of total number of steps taken per day:   
 
@@ -73,7 +78,7 @@ library(lattice)
 xyplot(table2$steps ~ table2$interval, type="l" ,xlab="Interval",ylab="Number of steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 We can also check which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:  
 
@@ -121,7 +126,7 @@ table_new<-aggregate(steps ~ date, data=data_new, FUN=sum)
 hist(table_new$steps,ylab="Frequency",xlab="Steps",main="Histogram of total steps each day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 
 And we calculate the mean and median of total number of steps taken per day from the new table:   
 
@@ -170,4 +175,4 @@ table_new_final<-rbind(table_new_weekday,table_new_weekend)
 xyplot(table_new_final$steps ~ table_new_final$interval|table_new_final$factor,type="l" , layout = c(1, 2),xlab="Interval",ylab="Number of steps") 
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
